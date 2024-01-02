@@ -1,4 +1,4 @@
-package andrey.code.store.entity;
+package andrey.code.store.entity.enums;
 
 public enum Role {
     USER,

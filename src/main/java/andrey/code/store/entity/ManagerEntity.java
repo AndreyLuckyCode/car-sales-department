@@ -1,5 +1,6 @@
 package andrey.code.store.entity;
 
+import andrey.code.store.entity.enums.Role;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
@@ -39,6 +40,10 @@ public class ManagerEntity implements UserDetails {
     @OneToMany
     @JoinColumn(name = "manager_id")
     List<CarEntity> carEntity;
+
+    @OneToMany
+    @JoinColumn(name = "manager_id")
+    List<CarOrderEntity> carOrderEntity;
 
     @Enumerated(EnumType.STRING)
     Role role;

@@ -1,9 +1,13 @@
 package andrey.code.store.entity;
 
+
+import andrey.code.store.entity.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.time.Instant;
 
 @Setter
 @Getter
@@ -12,34 +16,28 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "car")
-public class CarEntity {
+@Table(name = "car_order")
+public class CarOrderEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String model;
+    String title;
 
-    Integer price;
+    @JsonProperty("attached_info")
+    String attachedInfo;
 
-    @JsonProperty("is_sold")
-    boolean isSold;
+    @Builder.Default
+    @JsonProperty("order_date")
+    Instant orderDate = Instant.now();
 
-    @JsonProperty("is_booked")
-    boolean isBooked;
+    @Enumerated(EnumType.STRING)
+    OrderStatus status;
+
+    @OneToOne
+    CarEntity car;
 
     @ManyToOne
     ManagerEntity manager;
-
-    @OneToOne
-    CarOrderEntity carOrder;
-
-    public void setIsSold(boolean isSold) {
-        this.isSold = isSold;
-    }
-
-    public void setIsBooked(boolean isBooked){
-        this.isBooked = isBooked;
-    }
 }

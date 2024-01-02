@@ -2,12 +2,11 @@ package andrey.code.security.auth;
 
 import andrey.code.security.jwt.JwtService;
 import andrey.code.store.entity.ManagerEntity;
-import andrey.code.store.entity.Role;
+import andrey.code.store.entity.enums.Role;
 import andrey.code.store.repository.ManagerRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.apache.catalina.Manager;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
