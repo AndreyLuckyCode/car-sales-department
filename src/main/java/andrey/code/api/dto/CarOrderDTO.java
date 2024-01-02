@@ -1,7 +1,5 @@
 package andrey.code.api.dto;
 
-import andrey.code.store.entity.CarEntity;
-import andrey.code.store.entity.ManagerEntity;
 import andrey.code.store.entity.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.EnumType;

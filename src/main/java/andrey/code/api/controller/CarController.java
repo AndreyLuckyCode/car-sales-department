@@ -20,7 +20,7 @@ public class CarController {
     CarService carService;
 
     private static final String CREATE_CAR = "/api/cars";
-    private static final String GET_ALL_CARS_BY_MANAGER_ID = "/api/managers/manager_id/cars";
+    private static final String GET_ALL_CARS_BY_MANAGER_ID = "/api/managers/{manager_id}/cars";
     private static final String GET_NON_SOLD_CARS = "/api/cars/non_sold";
     private static final String GET_SOLD_CARS = "/api/cars/sold";
     private static final String UPDATE_OR_SALE_CAR = "/api/cars/{car_id}";

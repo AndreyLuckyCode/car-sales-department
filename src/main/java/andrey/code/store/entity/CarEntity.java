@@ -32,9 +32,6 @@ public class CarEntity {
     @ManyToOne
     ManagerEntity manager;
 
-    @OneToOne
-    CarOrderEntity carOrder;
-
     public void setIsSold(boolean isSold) {
         this.isSold = isSold;
     }

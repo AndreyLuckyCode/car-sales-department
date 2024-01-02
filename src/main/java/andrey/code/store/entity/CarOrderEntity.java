@@ -35,9 +35,6 @@ public class CarOrderEntity {
     @Enumerated(EnumType.STRING)
     OrderStatus status;
 
-    @OneToOne
-    CarEntity car;
-
     @ManyToOne
     ManagerEntity manager;
 }
