@@ -52,19 +52,33 @@ public class CarOrderServiceImpl implements CarOrderService {
     }
 
 
-//TODO (дописать сервис)
-
     @Override
     @Transactional
     public List<CarOrderDTO> getAllCarOrders() {
-        return null;
-    }
 
+
+        List<CarOrderEntity> carOrders = carOrderRepository.findAll();
+
+        if(carOrders.isEmpty()){
+            throw new NotFoundException("Car order list is empty");
+        }
+
+        return carOrders.stream()
+                .map(carOrderDTOFactory::createCarOrderDTO)
+                .toList();
+    }
 
 
     @Override
     @Transactional
     public AckDTO deleteCarOrder(@PathVariable("car_order_id") Long id) {
-        return null;
+
+        if(carOrderRepository.findById(id).isEmpty()){
+            throw new NotFoundException("Car order with that ID doesn't exist");
+        }
+
+        carOrderRepository.deleteById(id);
+
+        return AckDTO.builder().answer(true).build();
     }
 }
